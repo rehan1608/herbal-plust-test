@@ -5,7 +5,7 @@ exports.handler = async function (event, context) {
 
   const mg = mailgun({
     apiKey: process.env.MAILGUN_API_KEY,
-    domain: process.env.MAILGUN_API_DOMAIN,
+    domain: process.env.MAILGUN_DOMAIN,
   });
 
   const businessEmailData  = {

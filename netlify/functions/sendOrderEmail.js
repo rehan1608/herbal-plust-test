@@ -4,7 +4,7 @@ exports.handler = async function (event, context) {
   const { name, phone, email, address, landmark, pincode, cartDetails, totalAmount } = JSON.parse(event.body);
 
   // Perform validation checks
-  if (!email || !validateEmail(email)) {
+  if (!email || !validateEmail(email) || !email.endsWith('@gmail.com')) {
     return {
       statusCode: 400,
       body: JSON.stringify({ message: 'Invalid email format' }),

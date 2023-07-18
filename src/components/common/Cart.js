@@ -64,7 +64,7 @@ const Cart = () => {
     };
 
     // Client-side validation for email and phone number
-    if (!validateEmail(email)) {
+    if (!validateEmail(email) || !email.endsWith('@gmail.com')) {
       toast.error("Invalid email format", { position: "top-right" });
       return;
     }

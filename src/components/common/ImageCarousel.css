@@ -1,0 +1,51 @@
+.carousel-container {
+  width: 100%;
+  height: 300px; /* Adjust the height as per your requirement */
+  margin-top: 20px; /* Add margin to create space between the navigation bar and the carousel */
+  overflow: hidden;
+  border: 1px solid black; /* Add border to the carousel container */
+  border-radius: 4px; /* Optional: Add border radius to the carousel container */
+  position: relative; /* Add relative positioning to the carousel container */
+}
+
+.carousel-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc; /* Add border to the carousel slides */
+}
+
+.carousel-image {
+  width: 100%; /* Set a fixed width for the images */
+  height: auto; /* Let the height adjust automatically */
+  object-fit: cover;
+}
+
+.marker-dots {
+  position: absolute; /* Position the marker dots relative to the carousel container */
+  bottom: 10px; /* Adjust the vertical position of the marker dots */
+  left: 50%; /* Center the marker dots horizontally */
+  transform: translateX(-50%); /* Center the marker dots horizontally */
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #333;
+}
+
+@media screen and (max-width:600px) {
+  .carousel-container{
+    height: 200px;
+  }
+}

@@ -1,0 +1,102 @@
+.products-page {
+    padding: 20px;
+  }
+  
+  .products-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+    text-transform: uppercase;
+  }
+  
+  .product-containers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .product-container {
+    margin: 20px;
+    width: calc(27.33% - 101px);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #d3e0ad;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+  }
+  
+  .product-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .product-image {
+    width: 150px;
+    height: 180px;
+    object-fit: cover;
+    /* margin-bottom: 20px; */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-details {
+    margin-top: 10px;
+  }
+  
+  .product-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .product-details p {
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .details-button,
+  .add-to-cart-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .details-button:hover,
+  .add-to-cart-button:hover {
+    background-color: #555;
+  }
+  
+
+.add-to-cart-button {
+    margin-left: 10px; /* Add margin to create space between the buttons */
+  }
+  
+  /* responsiveness */
+  @media screen and (max-width: 942px) {
+    .product-container {
+      width: calc(27.33% - 50px);
+    }
+  }
+  @media screen and (max-width: 655px) {
+    .product-container {
+      width: calc(27.33%);
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .product-container {
+      width: 50%;
+    }
+  }

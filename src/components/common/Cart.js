@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
-import axios from 'axios'
+import axios from "axios";
 import Header from "./header";
 import ProductsPage from "../Products/Products";
 import Footer from "./footer";
 import { CartContext } from "./CartContext";
 import "./Cart.css";
-import {toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
   const { cartItems, cartCount, removeFromCart, clearCart } =
@@ -63,12 +63,24 @@ const Cart = () => {
       totalAmount,
     };
 
+    // Validate email format
+    if (!email.endsWith("@gmail.com")) {
+      alert("Please enter a valid Gmail address.");
+      return;
+    }
+
+    // Validate phone number length
+    if (phone.length !== 10) {
+      alert("Please enter a 10-digit phone number.");
+      return;
+    }
+
     try {
       // Make a POST request to your serverless function
-      await axios.post('/.netlify/functions/sendOrderEmail', orderData);
+      await axios.post("/.netlify/functions/sendOrderEmail", orderData);
 
       // Show success toast notification
-      toast.success('Order Placed Successfully, We\'ll contact You');
+      toast.success("Order Placed Successfully, We'll contact You");
 
       // Clear cart and form fields
       clearCart();
@@ -81,10 +93,10 @@ const Cart = () => {
         pincode: "",
       });
     } catch (error) {
-      console.error('Error placing order:', error);
+      console.error("Error placing order:", error);
 
       // Show error toast notification
-      toast.error('Failed to place order. Please try again.');
+      toast.error("Failed to place order. Please try again.");
     }
   };
 

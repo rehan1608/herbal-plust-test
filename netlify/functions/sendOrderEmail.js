@@ -9,8 +9,8 @@ exports.handler = async function (event, context) {
   });
 
   const businessEmailData  = {
-    from: 'buissnessrehan@gmail.com',
-    to: 'buissnessrehan@gmail.com',
+    from: 'raorehan79@gmail.com',
+    to: 'raorehan79@gmail.com',
     subject: 'New Order',
     html: `
       <html>

@@ -3,6 +3,28 @@ const mailgun = require('mailgun-js');
 exports.handler = async function (event, context) {
   const { name, phone, email, address, landmark, pincode, cartDetails, totalAmount } = JSON.parse(event.body);
 
+  // Perform validation checks
+  if (!email || !validateEmail(email)) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: 'Invalid email format' }),
+    };
+  }
+
+  if (!phone || !validatePhoneNumber(phone)) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: 'Invalid phone number' }),
+    };
+  }
+
+  if (!cartDetails || cartDetails.length === 0) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: 'Cart is empty' }),
+    };
+  }
+
   const mg = mailgun({
     apiKey: process.env.MAILGUN_API_KEY,
     domain: process.env.MAILGUN_DOMAIN
@@ -100,3 +122,15 @@ exports.handler = async function (event, context) {
     };
   }
 };
+
+// Function to validate email format
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Function to validate phone number format
+function validatePhoneNumber(phone) {
+  const phoneRegex = /^\d{10}$/;
+  return phoneRegex.test(phone);
+}

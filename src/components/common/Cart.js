@@ -63,15 +63,14 @@ const Cart = () => {
       totalAmount,
     };
 
-    // Validate email format
-    if (!email.endsWith("@gmail.com")) {
-      alert("Please enter a valid Gmail address.");
+    // Client-side validation for email and phone number
+    if (!validateEmail(email)) {
+      toast.error("Invalid email format", { position: "top-right" });
       return;
     }
 
-    // Validate phone number length
-    if (phone.length !== 10) {
-      alert("Please enter a 10-digit phone number.");
+    if (!validatePhoneNumber(phone)) {
+      toast.error("Invalid phone number", { position: "top-right" });
       return;
     }
 
@@ -99,6 +98,17 @@ const Cart = () => {
       toast.error("Failed to place order. Please try again.");
     }
   };
+
+  // Validation functions (same as server-side)
+  function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  function validatePhoneNumber(phone) {
+    const phoneRegex = /^\d{10}$/;
+    return phoneRegex.test(phone);
+  }
 
   return (
     <>

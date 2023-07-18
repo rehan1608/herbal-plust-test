@@ -5,7 +5,7 @@ import ProductsPage from "../Products/Products";
 import Footer from "./footer";
 import { CartContext } from "./CartContext";
 import "./Cart.css";
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Cart = () => {
@@ -214,7 +214,6 @@ const Cart = () => {
       <Footer />
     </>
   );
-  <ToastContainer position="top-right" />
 };
 
 export default Cart;
